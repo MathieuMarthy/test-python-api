@@ -23,7 +23,7 @@ jobs:
           tags: ghcr.io/{{ vars.GITHUB_REPOSITORY }}/api:${{ github.sha }}
           target: api
       - name: Deploy the new image
-        uses: apgleboy/ssh-action@naster
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
