@@ -19,5 +19,6 @@ jobs:
         image: kojhyy/repo
         tags: v1, latest
         registry: docker.io
+        dockerfile: Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
