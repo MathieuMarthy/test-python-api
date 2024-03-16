@@ -20,7 +20,7 @@ jobs:
         with:
           context: .
           file: Dockerfile
-          tags: ghcr.io/{{ github.event.repository.name }}/api:${{ github.sha }}
+          tags: ghcr.io/MathieuMarthy/test-api-python/api:${{ github.sha }}
           target: api
       - name: Deploy the new image
         uses: appleboy/ssh-action@v1.0.3
@@ -30,4 +30,4 @@ jobs:
           key: ${{ secrets.KEY }}
           script: |
             cd ~/stacks
-            docker service update --image ghcr.io/{{ github.event.repository.name }}/api:${{ github.sha }}
+            docker service update --image ghcr.io/MathieuMarthy/test-api-python/api:${{ github.sha }}
