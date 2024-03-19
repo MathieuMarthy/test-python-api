@@ -14,17 +14,15 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and Push Backend Docker Image
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
-          context: .
-          file: Dockerfile
-          tags: ghcr.io/mathieumarthy/test-api-python/api:${{ github.sha }}
-          target: api
+          push: true
+          tags: kojhyy/test-api-python:lastest
+
       - name: Deploy the new image
         uses: appleboy/ssh-action@v1.0.3
         with:
