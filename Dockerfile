@@ -1,7 +1,11 @@
 FROM python:3.9-slim AS API
 
-RUN pip install -r requirements.txt
+WORKDIR /app
+COPY . /app
+
+RUN pip install -r app/requirements.txt
 EXPOSE 8080
 EXPOSE 443
 
+CMD ["ls"]
 CMD ["python", "main.py"]
